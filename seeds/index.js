@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Campground = require('../models/campground')
 const cities = require('./cities')
-console.log(cities)
 const {descriptors , places} = require('./seedhelper')
 
 
@@ -22,7 +21,9 @@ const seedDb = async()=>{
         const rand1000 = Math.floor(Math.random()*1000);
         const camp = new Campground ({
             title: `${randLocation(descriptors)} ${randLocation(places)}`,
-            price: `${Math.floor(Math.random()*25)}$` ,
+            image:'http://source.unsplash.com/collection/484351',
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta et voluptatem eum itaque earum quia.',
+            price: Math.floor(Math.random()*25) ,
             location: `${cities[rand1000].city}, ${cities[rand1000].state}`
         })
         await camp.save()

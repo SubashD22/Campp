@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Campground = require('./models/campground');
+const ejsMate = require('ejs-mate')
 
 mongoose.connect('mongodb://localhost:27017/campp', {
     useNewUrlParser: true,
@@ -23,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.engine('ejs',ejsMate)
 
 
 app.get('/', (req, res) => {
