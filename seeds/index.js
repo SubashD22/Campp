@@ -20,6 +20,7 @@ const seedDb = async()=>{
     for(let i= 0; i < 50; i++){
         const rand1000 = Math.floor(Math.random()*1000);
         const camp = new Campground ({
+            author: '62ac8e05e4f2f52c9a17dfe5',
             title: `${randLocation(descriptors)} ${randLocation(places)}`,
             image:'http://source.unsplash.com/collection/484351',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta et voluptatem eum itaque earum quia.',
